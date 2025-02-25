@@ -1,3 +1,4 @@
+import os
 import meilisearch
 import json
 import data.config
@@ -12,9 +13,9 @@ class Meilisearch:
 
     def add_anime2search(self, method):
         if method == "sub":
-            score_path = data.config.work_dir + "/data/jsons/sub_score_sorted.json"
+            score_path = os.path.join(data.config.work_dir, "data", "jsons", "sub_score_sorted.json")
         else:
-            score_path = data.config.work_dir + "/data/jsons/score_sorted.json"
+            score_path = os.path.join(data.config.work_dir, "data", "jsons", "score_sorted.json")
         scores = json.load(open(score_path, "r"))
         for k, v in scores.items():
             v["id"] = v["bgm_id"]
@@ -28,7 +29,8 @@ class Meilisearch:
         dicts = dict(dicts)
         dicts["id"] = dicts["bgm_id"]
         dicts.pop("bgm_id")
-        self.index.add_documents(dicts)
+        # TODO: 报错
+        # self.index.add_documents(dicts)
 
     def update_filterable_attributes(self):
         body = ["id"]

@@ -8,6 +8,10 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from starlette.responses import FileResponse
 
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import web_api.meili_search
 from data.config import work_dir
 from deamon import updata_score, meili_update

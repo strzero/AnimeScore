@@ -1,4 +1,5 @@
 import logging
+import os
 import time
 
 from data.config import log_level
@@ -16,7 +17,7 @@ def return_level():
 
 class Log:
     def __init__(self, logger=None):
-        self.log_path = work_dir + "/data/log.txt"
+        self.log_path = os.path.join(work_dir, "data", "log.txt")
 
         self.logger = logging.getLogger(logger)
         self.logger.setLevel(return_level())

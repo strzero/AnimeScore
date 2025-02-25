@@ -14,7 +14,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = (
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
-file = open(config.work_dir + "/data/jsons/score_sorted.json")
+file = open(os.path.join(config.work_dir, "data", "jsons", "score_sorted.json"))
 json_data = json.load(file)
 
 

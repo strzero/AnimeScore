@@ -55,4 +55,4 @@ key = "test"
 ttl = 600
 max_size = 100
 
-work_dir = os.path.abspath(os.path.dirname(os.getcwd()))
+work_dir = os.path.join(os.path.abspath(os.path.dirname(os.getcwd())), "AnimeScore")
